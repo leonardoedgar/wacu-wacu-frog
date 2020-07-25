@@ -1,0 +1,33 @@
+FROM ubuntu:18.04
+MAINTAINER Leonardo Edgar
+
+ARG USER
+ARG GROUP
+ARG UID
+ARG GID
+
+# Install core linux tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+	apt-utils lsb-release sudo unzip wget ssh vim curl ca-certificates gnupg\
+	&& rm -rf /var/lib/apt/lists/*
+
+# Install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+	echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+	apt update && \
+	apt install -y yarn
+
+# User and permissions
+ARG HOME=/home/${USER}
+RUN mkdir -p /etc/sudoers.d \
+    && groupadd -g ${GID} ${GROUP} \
+    && useradd -d ${HOME} -u ${UID} -g ${GID} -m -s /bin/bash ${USER} \
+    && echo "${USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/sudoers_${USER}
+USER ${USER}
+RUN sudo usermod -a -G video ${USER}
+
+WORKDIR ${HOME}
+
+# Install node modules
+COPY --chown=${USER} wacu-wacu-gui/			wacu-wacu-gui/
+RUN cd wacu-wacu-gui && yarn install

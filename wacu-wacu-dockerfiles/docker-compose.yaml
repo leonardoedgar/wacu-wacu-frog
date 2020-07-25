@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  gui:
+    build: 
+      context: ..
+      dockerfile: wacu-wacu-dockerfiles/Dockerfile.gui
+      args:
+        USER: ${dUSER}
+        GROUP: ${dGROUP}
+        UID: ${dUID}
+        GID: ${dGID}
+    image: leonardoedgar/wacu-wacu:gui-latest
+    container_name: gui
+    network_mode: "host"
+    ports:
+      - 3000:3000
+    environment:
+      - DISPLAY=unix$DISPLAY
+    shm_size: 256M
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ../wacu-wacu-gui:/home/${dUSER}/wacu-wacu-gui
+      - gui_node_modules:/home/${dUSER}/wacu-wacu-gui/node_modules
+    stop_signal: SIGINT
+    working_dir: /home/${dUSER}/
+    command: sleep infinity
+
+volumes:
+  gui_node_modules:
