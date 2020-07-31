@@ -13,18 +13,22 @@ services:
     image: leonardoedgar/wacu-wacu:master-latest
     container_name: master
     network_mode: "host"
-    ports:
-      - 3000:3000
     environment:
       - DISPLAY=unix$DISPLAY
     shm_size: 256M
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ../wacu-wacu-gui:/home/${dUSER}/wacu-wacu-gui
-      - node_modules:/home/${dUSER}/wacu-wacu-gui/node_modules
+      - ../wacu-wacu-server:/home/${dUSER}/wacu-wacu-server
+      - ../wacu-wacu-client:/home/${dUSER}/wacu-wacu-client
+      - ../wacu-wacu-manager:/home/${dUSER}/wacu-wacu-manager
+      - server_node_modules:/home/${dUSER}/wacu-wacu-server/node_modules
+      - client_node_modules:/home/${dUSER}/wacu-wacu-client/node_modules
+      - manager_node_modules:/home/${dUSER}/wacu-wacu-manager/node_modules
     stop_signal: SIGINT
     working_dir: /home/${dUSER}
     command: sleep infinity
 
 volumes:
-  node_modules:
+  server_node_modules:
+  client_node_modules:
+  manager_node_modules:

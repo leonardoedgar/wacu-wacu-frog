@@ -11,11 +11,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	apt-utils lsb-release sudo unzip wget ssh vim curl ca-certificates gnupg\
 	&& rm -rf /var/lib/apt/lists/*
 
+# Install npm and nodejs
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+	&& apt-get install -y nodejs --no-install-recommends \
+	&& rm -rf /var/lib/apt/lists/*
+
 # Install yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-	echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-	apt update && \
-	apt install -y yarn
+# RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+# 	  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+#	  apt update && \
+#	  apt install -y yarn --no-install-recommends && \
+#	  rm -rf /var/lib/apt/lists/*
 
 # User and permissions
 ARG HOME=/home/${USER}
@@ -29,5 +35,9 @@ RUN sudo usermod -a -G video ${USER}
 WORKDIR ${HOME}
 
 # Install node modules
-COPY --chown=${USER} wacu-wacu-gui/			wacu-wacu-gui/
-RUN cd wacu-wacu-gui && yarn install
+COPY --chown=${USER} wacu-wacu-server/package.json			wacu-wacu-server/package.json
+RUN cd wacu-wacu-server && npm install
+COPY --chown=${USER} wacu-wacu-client/package.json			wacu-wacu-client/package.json
+RUN cd wacu-wacu-client && npm install
+COPY --chown=${USER} wacu-wacu-manager/package.json			wacu-wacu-manager/package.json
+RUN cd wacu-wacu-manager && npm install
