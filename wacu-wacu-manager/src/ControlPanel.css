@@ -1,0 +1,24 @@
+.control-panel {
+    margin: 350px 0 0 0;
+}
+
+.arrow {
+    width: 200px;
+    height: 200px;
+    display: block;
+}
+
+#vertical-arrow {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#right-arrow {
+    margin-left: 100px;
+    margin-right: auto;
+}
+
+#left-arrow {
+    margin-left: auto;
+    margin-right: 100px;
+}

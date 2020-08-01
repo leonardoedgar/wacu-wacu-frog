@@ -1,13 +1,22 @@
 import React from 'react';
-import './App.css';
 import io from 'socket.io-client';
+import './App.css';
+import TitleBar from "./TitleBar";
+import NavigationBar from "./NavigationBar";
+import ControlPanel from "./ControlPanel";
+
 const socket = io();
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <button onClick={() => socket.emit('addCounter')
-      }>add counter</button>
+    <div className="app">
+      <TitleBar/>
+      <NavigationBar/>
+      <ControlPanel/>
+      <div>
+        <button onClick={() => socket.emit('addCounter')
+        }>add counter</button>
+      </div>
     </div>
   );
 }

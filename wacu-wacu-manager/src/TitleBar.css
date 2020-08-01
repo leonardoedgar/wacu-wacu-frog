@@ -1,0 +1,15 @@
+.title-bar {
+    display: flex;
+}
+
+.frog-icon {
+    margin: 50px 0 0 50px;
+    width: 250px;
+    height: 200px;
+}
+
+.frog-text {
+    margin: 94px 0 0 -21px;
+    width: 600px;
+    height: 130px;
+}
