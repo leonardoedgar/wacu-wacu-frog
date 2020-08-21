@@ -1,0 +1,92 @@
+.task-creator-panel {
+    width: 1398px;
+    height: 1650px;
+    border: solid 1px #707070;
+    background-color: #ffffff;
+    margin: 88px 70px 0 70px;
+}
+
+.task-creator-title-bar {
+    height: 154px;
+    width: 1218px;
+    margin: 38px auto 0 auto;
+    border-radius: 65px;
+    font-size: 70px;
+    padding: 23px 298px 23px 298px;
+}
+
+.name-label {
+    width: 231px;
+    height: 123px;
+    border-radius: 58px;
+    font-size: 80px;
+    padding: 7px 14px 7px 15px;
+}
+
+.task-label {
+    width: 231px;
+    height: 123px;
+    border-radius: 58px;
+    font-size: 80px;
+    padding: 7px 33px 7px 33px;
+}
+
+.deadline-label {
+    width: 411px;
+    height: 131px;
+    border-radius: 58px;
+    font-size: 80px;
+    padding: 7px 40px 7px 40px;
+}
+
+.task-creator-label {
+    font-family: KristenITC-regular, serif;
+    color: #c9a143;
+    box-shadow: 6px 6px 6px 0 rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 6px 6px 6px 0 rgba(0, 0, 0, 0.16);
+    border: solid 1px #707070;
+    background: #fff2a3;
+}
+
+.name-bar {
+    display: flex;
+    width: 1181px;
+    height: 123px;
+    margin: 65px 0 0 90px;
+}
+
+.task-bar {
+    display: flex;
+    width: 1181px;
+    height: 123px;
+    margin: 64px 0 0 90px;
+}
+
+.task-creator-textbox {
+    margin: 0 0 0 50px;
+    width: 900px;
+    height: 120px;
+    cursor: pointer;
+    font-family: KristenITC-regular, serif;
+    font-size: 60px;
+}
+
+.deadline-bar {
+    display: flex;
+    width: 1181px;
+    height: 700px;
+    margin: 64px 0 0 90px;
+}
+
+.task-creator-btn {
+    width: 500px;
+    height: 190px;
+}
+
+.back-btn {
+    margin: 0 0 0 70px;
+}
+
+.complete-btn {
+    margin: 0 0 0 86px;
+}

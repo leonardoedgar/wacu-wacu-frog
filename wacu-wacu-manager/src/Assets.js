@@ -6,7 +6,10 @@ import arrowUpIcon from './assets/images/arrow-up.png';
 import arrowLeftIcon from './assets/images/arrow-left.png';
 import arrowRightIcon from './assets/images/arrow-right.png';
 import arrowDownIcon from './assets/images/arrow-down.png';
+import completeBtnIcon from './assets/images/complete-button.png';
+import backBtnIcon from './assets/images/back-button.png';
 
 export {
-  frogIcon, frogText, controlBtnClicked, taskBtnActive, arrowUpIcon, arrowLeftIcon, arrowRightIcon, arrowDownIcon
+  frogIcon, frogText, controlBtnClicked, taskBtnActive, arrowUpIcon, arrowLeftIcon, arrowRightIcon, arrowDownIcon,
+  completeBtnIcon, backBtnIcon
 }

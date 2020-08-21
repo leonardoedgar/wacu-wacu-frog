@@ -18,13 +18,11 @@
 }
 
 #create-btn {
-    margin-left: auto;
-    margin-right: 95px;
+    margin: 0 0 0 365px;
 }
 
 #delete-btn {
-    margin-left: 95px;
-    margin-right: auto;
+    margin: 0 0 0 190px;
 }
 
 .task-list {

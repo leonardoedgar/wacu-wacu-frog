@@ -22,3 +22,13 @@ img {
     font-family: 'KristenITC-regular';
     src: url("./assets/fonts/KristenITC-Regular.ttf") format('truetype'); /* Safari, Android, iOS */
 }
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url("./assets/fonts/Poppins-Medium.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url("./assets/fonts/Poppins-Regular.ttf") format('truetype');
+}
