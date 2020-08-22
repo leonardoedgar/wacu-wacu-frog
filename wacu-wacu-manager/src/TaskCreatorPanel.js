@@ -5,10 +5,12 @@ import {completeBtnIcon, backBtnIcon} from './Assets';
 import "./TaskCreatorPanel.css";
 import 'react-calendar/dist/Calendar.css';
 import "./Calendar.css";
+import DeadlineModal from "./DeadlineModal";
 
 
 const TaskCreatorPanel = () => {
-  const [value, onChange] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [isModalOpen, setModalOpen] = useState(false);
   return (
     <div className="task-creator-panel">
       <div className="task-creator-title-bar task-creator-label">create new task</div>
@@ -24,8 +26,11 @@ const TaskCreatorPanel = () => {
         <div className="deadline-label task-creator-label">deadline</div>
         <div style={{margin: "0 0 0 58px"}}>
           <Calendar
-            onChange={(value, event) => alert(value)}
-          value={value}
+            onChange={(date, event) => {
+              setSelectedDate(date)
+              setModalOpen(true);
+            }}
+          value={selectedDate}
         />
         </div>
       </div>
@@ -42,6 +47,14 @@ const TaskCreatorPanel = () => {
             className="task-creator-btn complete-btn"
             alt="complete-button"/>
         </Link>
+      </div>
+      <div>
+      <DeadlineModal
+        isOpen={isModalOpen}
+        setModalOpen={setModalOpen}
+        selectedDate={selectedDate.toDateString()}
+      >
+      </DeadlineModal>
       </div>
     </div>
   )
