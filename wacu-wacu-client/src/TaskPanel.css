@@ -1,0 +1,15 @@
+.task-panel {
+    margin: 27px 0 0 44px;
+}
+
+.task-list {
+    width: 712px;
+    height: 325px;
+    background: #ffffff;
+    border: inset 2px #707070;
+    border-radius: 4%;
+    padding: 21px 34px;
+    font-size: 40px;
+    color: #686666;
+    font-family: KristenITC-regular, serif;
+}
