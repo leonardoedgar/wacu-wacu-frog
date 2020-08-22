@@ -1,25 +1,22 @@
 import React from 'react';
-import ReactModal from 'react-modal';
 import  './DeadlineModal.css';
+import ModalWindow from "./ModalWindow";
 
 const DeadlineModal = ({isOpen, setModalOpen, selectedDate}) => {
   return (
-    <ReactModal
+    <ModalWindow
       isOpen={isOpen}
-      className="deadline-modal"
-      overlayClassName="deadline-modal-overlay"
+      title="deadline"
     >
-      <div className="deadline-modal-title">deadline</div>
-      <div className="deadline-modal-content">
-        <div>
-          <span>Date:</span>
-          <span style={{margin: "0 0 0 50px"}}>{selectedDate}</span>
-        </div>
+      <div>
+        <span>Date:</span>
+        <span style={{margin: "0 0 0 50px"}}>{selectedDate}</span>
+      </div>
         <div style={{display: "flex", margin: "20px 0 0 0"}}>
           <div>Time: </div>
-          <input type="text" className="deadline-modal-textbox deadline-modal-font" placeholder="hh:mm"/>
+          <input type="text" className="deadline-modal-textbox modal-font" placeholder="hh:mm"/>
           <select
-            className="deadline-modal-dropdown-list deadline-modal-font"
+            className="deadline-modal-dropdown-list modal-font"
             name="time"
             onChange={(event) => console.log(event.target.value)}>
             <option key="am" value="am">am</option>
@@ -28,16 +25,15 @@ const DeadlineModal = ({isOpen, setModalOpen, selectedDate}) => {
         </div>
         <div style={{margin: "146px 0 0 0"}}>
           <button
-            className="deadline-modal-button deadline-modal-font"
+            className="modal-font modal-button"
             onClick={() => setModalOpen(false)}
           >cancel</button>
           <button
-            className="deadline-modal-button deadline-modal-font deadline-modal-set-btn"
+            className="modal-font modal-button deadline-modal-set-btn"
             onClick={() => setModalOpen(false)}
           >set</button>
         </div>
-      </div>
-    </ReactModal>
+    </ModalWindow>
   )
 };
 
